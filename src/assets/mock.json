@@ -1,0 +1,54 @@
+{
+  "people": [
+    {
+      "name": "simon",
+      "points": 0
+    },
+    {
+      "name": "simon",
+      "points": 0
+    },
+    {
+      "name": "simon",
+      "points": 0
+    },
+    {
+      "name": "simon",
+      "points": 0
+    },
+    {
+      "name": "simon",
+      "points": 0
+    }
+  ],
+  "trains": [
+    {
+      "name":"northern",
+      "points": 200
+    },
+    {
+      "name":"northern",
+      "points": 200
+    },
+    {
+      "name":"northern",
+      "points": 200
+    },
+    {
+      "name":"northern",
+      "points": 200
+    },
+    {
+      "name":"northern",
+      "points": 200
+    },
+    {
+      "name":"northern",
+      "points": 200
+    },
+    {
+      "name":"northern",
+      "points": 200
+    }
+  ]
+}
