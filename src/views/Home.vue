@@ -10,13 +10,12 @@
 
     <i class="fas fa-bars" @click="toggleNav" ></i>
 
-
-    <Time v-show="isTimeOpen"></Time>
+    <!-- <lateMaybe v-show="isTimeOpen"></lateMaybe> -->
     <League v-show="isLeagueOpen"></League>
   </div>
 </template>
 <script>
-import Time from '../components/time';
+import lateMaybe from '../components/time';
 import League from '../components/league';
 
 export default {
@@ -29,7 +28,7 @@ export default {
     }
   },
   components: {
-    Time,
+    lateMaybe,
     League
   },
   methods: {
@@ -110,6 +109,12 @@ nav {
 .nav-closed {
   width: 0;
   display: none;
+}
+
+.fa-bars {
+  position: absolute;
+  top: 15px;
+  right: 15px;
 }
 
 </style>

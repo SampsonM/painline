@@ -4,7 +4,7 @@
       <router-link to="/">login</router-link>
       <router-link to="/Home">HomeScreen</router-link>
     </div>
-    <router-view/>
+    <router-view />
   </div>
 </template>
 

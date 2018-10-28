@@ -1,7 +1,7 @@
 <template>
   <div class="league">
-    <button @click="toggleBoard"></button>
-    <button @click="toggleBoard"></button>
+    <button @click="toggleBoard">People</button>
+    <button @click="toggleBoard">Rail</button>
 
     <div v-show="board" class="people">
       <LeegTable :mock="mock.people"></LeegTable>
@@ -30,7 +30,7 @@ export default {
   },
   methods: {
     toggleBoard() {
-      board = !board;
+      this.board = !this.board;
     }
   }
 }
@@ -48,5 +48,16 @@ export default {
 button {
   color: red;
   background: blue;
+  width: 50px;
+  height: 20px;
+}
+
+.people {
+  width: 100%;
+  height: 400px;
+}
+.rail {
+  width: 100%;
+  height: 400px;
 }
 </style>
