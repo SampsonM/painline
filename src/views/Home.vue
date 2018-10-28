@@ -1,54 +1,44 @@
 <template>
   <div>
-    <nav :class="{'nav-open': isNavOpen, 'nav-closed': !isNavOpen}">
-      <i class="fas fa-times-circle" @click="toggleNav"></i>
-      <div class="menu">
-        <p @click="openTime">enter times</p>
-        <p @click="openLeague">lateness league</p>
-      </div>
-    </nav>
+    <Menu :isNavOpen="isNavOpen" @close-menu="toggleNav"
+    @open-time="toggleLate"
+    @open-league="toggleLeague"></Menu>
 
     <i class="fas fa-bars" @click="toggleNav" ></i>
 
-    <lateMaybe v-show="isTimeOpen"></lateMaybe>
-    <League v-show="isLeagueOpen"></League>
+    <lateMaybe v-show="isLateOpen" @open-late="toggleLate"></lateMaybe>
+    <League v-show="isLeagueOpen" @open-league="toggleLeague"></League>
   </div>
 </template>
 <script>
 import lateMaybe from '../components/lateMaybe';
 import League from '../components/league';
+import Menu from '../components/menu.vue';
 
 export default {
   name: 'Home',
   data() {
     return {
       isNavOpen: false,
-      isTimeOpen: false,
+      isLateOpen: false,
       isLeagueOpen: false
     }
   },
   components: {
     lateMaybe,
-    League
+    League,
+    Menu
   },
   methods: {
     toggleNav() {
-      if (window.matchMedia("(max-width: 800px)").matches) {
-        this.isNavOpen = !this.isNavOpen;
-      }
+      this.isNavOpen = !this.isNavOpen;
     },
-    openTime() {
-      if (window.matchMedia("(max-width: 800px)").matches) {
-        this.isTimeOpen = !this.isTimeOpen;
-      }
-
+    toggleLate() {
+      this.isLateOpen = !this.isLateOpen;
       this.toggleNav();
     },
-    openLeague() {
-      if (window.matchMedia("(max-width: 800px)").matches) {
-        this.isLeagueOpen = !this.isLeagueOpen;
-      }
-
+    toggleLeague() {
+      this.isLeagueOpen = !this.isLeagueOpen;
       this.toggleNav();
     }
   }
@@ -71,51 +61,13 @@ button {
   }
 }
 
-nav {
-  position: absolute;
-  top: 0;
-  right: 0;
-  height: 100%;
-  background: #fa0;
-  z-index: 1;
-  
-  .menu {
-    margin-top: 35px;
-  }
 
-  .fa-times-circle {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    font-size: 15px;
-  }
-
-  p {
-    border-top: 2px solid #fafafa;
-    border-bottom: 2px solid #fafafa;
-    margin: auto;
-    padding: 5px;
-
-    &:last-child {
-      border-top: 0;
-    }
-  }
-}
-
-.nav-open {
-  width: 100%;
-  display: block;
-}
-
-.nav-closed {
-  width: 0;
-  display: none;
-}
 
 .fa-bars {
   position: absolute;
   top: 15px;
   right: 15px;
+  font-size: 30px;
 }
 
 </style>

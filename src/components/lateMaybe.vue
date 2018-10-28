@@ -5,7 +5,7 @@
 </template>
 <script>
 export default {
-  name: 'time',
+  name: 'late',
   data() {
     return {}
   },

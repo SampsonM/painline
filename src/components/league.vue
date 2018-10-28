@@ -5,27 +5,29 @@
       <button @click="toggleBoard">Rail</button>
     </div>
 
-    <div v-show="board" class="people">
-      <Chart label="people" :mock="mock.people"></Chart>
+    <div v-if="board" class="people">
+      <Chart label="people" :chartData="users"></Chart>
     </div>
 
-    <div v-show="!board" class="rail">
-      <Chart label="trains" :mock="mock.trains"></Chart>
+    <div v-if="!board" class="rail">
+      <Chart label="trains" :chartData="mock.trains"></Chart>
     </div>
 
   </div>
 </template>
 <script>
-import mock from '../assets/mock.json';
-import LeegTable from './table';
-import Chart from './chart';
+import mock from '../assets/mock.json'
+import LeegTable from './table'
+import Chart from './chart'
+import db from './firebaseInit.js'
 
 export default {
   name: 'league',
   data() {
     return {
-      board: false,
-      mock
+      board: true,
+      mock,
+      users: []
     }
   },
   components: {
@@ -36,6 +38,20 @@ export default {
     toggleBoard() {
       this.board = !this.board;
     }
+  },
+  created() {
+    db.collection('users').get()
+      .then(snapshot => {
+        snapshot.forEach((doc, i) => {
+          const user = {
+            'id': doc.id,
+            'name': doc.data().name,
+            'points': doc.data().points
+          }
+
+          this.users.push(user);
+        })
+      })
   }
 }
 </script>
