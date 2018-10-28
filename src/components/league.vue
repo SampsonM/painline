@@ -1,14 +1,16 @@
 <template>
   <div class="league">
-    <button @click="toggleBoard">People</button>
-    <button @click="toggleBoard">Rail</button>
+    <div class="buttons"> 
+      <button @click="toggleBoard">People</button>
+      <button @click="toggleBoard">Rail</button>
+    </div>
 
     <div v-show="board" class="people">
-      <LeegTable :mock="mock.people"></LeegTable>
+      <Chart label="people" :mock="mock.people"></Chart>
     </div>
 
     <div v-show="!board" class="rail">
-      <LeegTable :mock="mock.trains"></LeegTable>
+      <Chart label="trains" :mock="mock.trains"></Chart>
     </div>
 
   </div>
@@ -16,17 +18,19 @@
 <script>
 import mock from '../assets/mock.json';
 import LeegTable from './table';
+import Chart from './chart';
 
 export default {
   name: 'league',
   data() {
     return {
-      board: true,
+      board: false,
       mock
     }
   },
   components: {
-    LeegTable
+    LeegTable,
+    Chart
   },
   methods: {
     toggleBoard() {
@@ -36,13 +40,18 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
+.buttons {
+  display: flex;
+  flex-direction: row;
+  width: 600px;
+}
 .league {
   position: absolute;
   top: 0;
   left: 0;
   height: 100%;
   width: 100vw;
-  background: green;
+  background: rgb(56, 56, 56);
 }
 
 button {

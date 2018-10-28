@@ -1,24 +1,36 @@
 {
   "people": [
     {
-      "name": "simon",
-      "points": 0
+      "name": "angelika",
+      "points": 200
+    },
+    {
+      "name": "mark",
+      "points": 10
     },
     {
       "name": "simon",
       "points": 0
     },
     {
-      "name": "simon",
-      "points": 0
+      "name": "johnathan",
+      "points": 100
     },
     {
-      "name": "simon",
-      "points": 0
+      "name": "sadiah",
+      "points": 90
     },
     {
-      "name": "simon",
-      "points": 0
+      "name": "jason",
+      "points": 110
+    },
+    {
+      "name": "mek",
+      "points": 190
+    },
+    {
+      "name": "jo",
+      "points": 290
     }
   ],
   "trains": [
@@ -28,27 +40,27 @@
     },
     {
       "name":"northern",
-      "points": 200
+      "points": 0
     },
     {
       "name":"northern",
-      "points": 200
+      "points": 250
     },
     {
       "name":"northern",
-      "points": 200
+      "points": 100
     },
     {
       "name":"northern",
-      "points": 200
+      "points": 60
     },
     {
       "name":"northern",
-      "points": 200
+      "points": 90
     },
     {
       "name":"northern",
-      "points": 200
+      "points": 160
     }
   ]
 }
